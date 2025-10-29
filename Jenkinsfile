@@ -3,18 +3,18 @@ pipeline {
     stages{
         stage('CodeScan'){
             steps{
-                sh 'trivy --version'
+                sh 'echo "clone"'
             }
         }
-        stage('dockerImageBuild'){
-            steps{
-                sh 'docker -v'
-            }
+    }
+    stage('test'){
+        steps{
+            sh 'echo "test"'
         }
-        stage('pushImage'){
-            steps{
-                sh 'docker ps'
-            }
+    }
+    stage('createfile'){
+        steps{
+            sh 'touch test-$BUILD_ID'
         }
     }
 }
